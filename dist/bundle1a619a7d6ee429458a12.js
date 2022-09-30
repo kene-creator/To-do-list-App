@@ -731,8 +731,8 @@ form.addEventListener('submit', function (e) {
   if (listName === null || listName === '') return;
   var obj = {
     name: listName,
-    description: false,
-    id: list.length
+    completed: false,
+    index: list.length
   };
   input.value = null;
   list.push(obj);
@@ -762,6 +762,16 @@ window.addEventListener('load', function (e) {
       class2.classList.toggle('strike');
       listContaniner.insertAdjacentHTML('afterbegin', markupCheck());
       clicked.classList.toggle('done');
+
+      for (var _i = 0; _i < list.length; _i++) {
+        if (list[_i].completed === false && clicked.id == _i) {
+          list[_i].completed = true;
+          localStorage.setItem('List', JSON.stringify(list));
+        } else if (list[_i].completed === true && clicked.id == _i) {
+          list[_i].completed = false;
+          localStorage.setItem('List', JSON.stringify(list));
+        }
+      }
     }
 
     document.querySelector('.btn').addEventListener('click', function (e) {
@@ -771,13 +781,12 @@ window.addEventListener('load', function (e) {
         var listArr2 = _store__WEBPACK_IMPORTED_MODULE_3__.getList();
         clicked.remove();
 
-        for (var _i = 0; _i < list.length; _i++) {
-          list[_i].description = true;
+        for (var _i2 = 0; _i2 < list.length; _i2++) {
+          list[_i2].description = true;
 
-          if (clicked.id == _i) {
-            listArr2.splice(_i, 1);
+          if (clicked.id == _i2) {
+            listArr2.splice(_i2, 1);
             localStorage.setItem('List', JSON.stringify(listArr2));
-            console.log(list);
           }
         }
       }
@@ -797,9 +806,9 @@ window.addEventListener('load', function (e) {
         clicked.remove();
         var listArr = _store__WEBPACK_IMPORTED_MODULE_3__.getList();
 
-        for (var _i2 = 0; _i2 < list.length; _i2++) {
-          if (clicked.id == _i2) {
-            listArr.splice(_i2, 1);
+        for (var _i3 = 0; _i3 < list.length; _i3++) {
+          if (clicked.id == _i3) {
+            listArr.splice(_i3, 1);
             localStorage.setItem('List', JSON.stringify(listArr));
           }
         }
@@ -815,4 +824,4 @@ dragEle();
 
 /******/ })()
 ;
-//# sourceMappingURL=bundle0351e51aa68d942fc829.js.map
+//# sourceMappingURL=bundle1a619a7d6ee429458a12.js.map
