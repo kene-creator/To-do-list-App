@@ -34,8 +34,8 @@ form.addEventListener('submit', function (e) {
 
   let obj = {
     name: listName,
-    description: false,
-    id: list.length,
+    completed: false,
+    index: list.length,
   };
 
   input.value = null;
@@ -71,6 +71,16 @@ window.addEventListener('load', (e) => {
       class2.classList.toggle('strike');
       listContaniner.insertAdjacentHTML('afterbegin', markupCheck());
       clicked.classList.toggle('done');
+
+      for (let i = 0; i < list.length; i++) {
+        if (list[i].completed === false) {
+          list[i].completed = true;
+          localStorage.setItem('List', JSON.stringify(list));
+        } else {
+          list[i].completed = false;
+          localStorage.setItem('List', JSON.stringify(list));
+        }
+      }
     }
 
     document.querySelector('.btn').addEventListener('click', (e) => {
@@ -83,7 +93,6 @@ window.addEventListener('load', (e) => {
           if (clicked.id == i) {
             listArr2.splice(i, 1);
             localStorage.setItem('List', JSON.stringify(listArr2));
-            console.log(list);
           }
         }
       }
