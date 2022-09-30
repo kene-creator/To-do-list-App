@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="./styles/style.css" />
+    <script
+      defer
+      src="https://cdnjs.cloudflare.com/ajax/libs/Sortable/1.15.0/Sortable.min.js"
+      integrity="sha512-Eezs+g9Lq4TCCq0wae01s9PuNWzHYoCMkE97e2qdkYthpI0pzC3UGB03lgEHn2XM85hDOUF6qgqqszs+iXU4UA=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    ></script>
+    <script type="module" defer src="./js/index.js"></script>
+    <title>To-do-list</title>
+  </head>
+  <body>
+    <h1 class="heading">To do list</h1>
+    <div class="task_body">
+      <div class="task_head">
+        <h3 class="task_heading">Demo</h3>
+        <div class="info">
+          <p class="list_num">0</p>
+        </div>
+        <svg class="icon refresh">
+          <use href="icon.svg#icon-refresh-ccw"></use>
+        </svg>
+      </div>
+
+      <div class="task_input">
+        <form action="" class="form">
+          <input type="text" class="input" placeholder="Add to your list..." />
+        </form>
+        <svg class="icon">
+          <use href="icon.svg#icon-corner-down-left"></use>
+        </svg>
+      </div>
+
+      <div class="task_items">
+        <ul class="task_list"></ul>
+      </div>
+      <button class="btn">Clear all Completed</button>
+    </div>
+  </body>
+</html>
