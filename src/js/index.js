@@ -15,7 +15,7 @@ for (let i = 0; i < list.length; i++) {
 
 const generateMarkup = (list, i) => {
   return `
-  <li class="task_item" id="${i}">
+  <li class="task_item" id="${i}" draggable="true">
   <div class="item_name">
     <input type="checkbox" class="check" id='item-${i}' />
     <label class="task_name">${list.name}</label>
@@ -34,7 +34,7 @@ form.addEventListener('submit', function (e) {
 
   let obj = {
     name: listName,
-    description: true,
+    description: false,
     id: list.length,
   };
 
@@ -77,12 +77,13 @@ window.addEventListener('load', (e) => {
       e.preventDefault();
       if (clicked.classList.contains('done')) {
         const listArr2 = store.getList();
-        console.log(listArr2);
         clicked.remove();
         for (let i = 0; i < list.length; i++) {
+          list[i].description = true;
           if (clicked.id == i) {
             listArr2.splice(i, 1);
             localStorage.setItem('List', JSON.stringify(listArr2));
+            console.log(list);
           }
         }
       }
@@ -114,3 +115,6 @@ window.addEventListener('load', (e) => {
     });
   });
 });
+
+const dragEle = new Sortable(container, { animation: 350 });
+dragEle();
