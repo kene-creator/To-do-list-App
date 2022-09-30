@@ -51,6 +51,7 @@ form.addEventListener('submit', function (e) {
 window.addEventListener('load', (e) => {
   const locale = store.getList();
   list.push(...locale);
+
   const renderLocale = list.map(generateMarkup).join('');
   document.querySelector('.list_num').textContent = locale.length;
   container.innerHTML = renderLocale;
@@ -71,12 +72,11 @@ window.addEventListener('load', (e) => {
       class2.classList.toggle('strike');
       listContaniner.insertAdjacentHTML('afterbegin', markupCheck());
       clicked.classList.toggle('done');
-
       for (let i = 0; i < list.length; i++) {
-        if (list[i].completed === false) {
+        if (list[i].completed === false && clicked.id == i) {
           list[i].completed = true;
           localStorage.setItem('List', JSON.stringify(list));
-        } else {
+        } else if (list[i].completed === true && clicked.id == i) {
           list[i].completed = false;
           localStorage.setItem('List', JSON.stringify(list));
         }
