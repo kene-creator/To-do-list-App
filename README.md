@@ -11,6 +11,9 @@
 - Javascript
 - Webpack
 
+## Live Demo
+[Live demo link](http://kene-creator.github.io/To-do-list-App/dist)
+
 ## Getting Started
 
 **[Clone the project](https://github.com/kene-creator/To-do-list.git), open up your terminal and run npm install. To install all the devDependenceies needed for the project to run smoothly. Next on your terminal type npm run build to get the project started and npm run dev to open with live server**
